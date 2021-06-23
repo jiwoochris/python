@@ -4,7 +4,7 @@ def IsPalindromes(texts):
         ignore = ""
         pal = ""
         for i in range(len(index)):
-            if '.' == index[i] or ',' == index[i] or '?' == index[i] or "'" == index[i] or '!' == index[i] or ' ' == index[i]:
+            if '.' == index[i] or ',' == index[i] or '?' == index[i] or "'" == index[i] or '"' == index[i] or '!' == index[i] or ' ' == index[i]:
                 continue
             else:
                 ignore = ignore + index[i]
@@ -15,6 +15,7 @@ def IsPalindromes(texts):
         else:
             result.append(False)
         print(pal)
+
     return result
         
 
