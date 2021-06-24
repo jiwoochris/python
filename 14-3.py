@@ -16,15 +16,12 @@ def williams(ticker, k):
 
     return rate.cumprod().iloc[-1]
 
-williams("KRW-BTC", 0.5)
-williams("KRW-MLK", 0.5)
-
 data = []
 for k in range(1, 21):
     data.append([k/10, williams("KRW-BTC", k/10)])
-    time.sleep(0.5)
+    time.sleep(0.1)
 
 df = DataFrame(data)
 df.columns = ["k", "return rate"]
-df.sort_values('return rate')
-print(df)
+
+print(df.sort_values('return rate'))
