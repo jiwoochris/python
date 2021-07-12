@@ -11,6 +11,7 @@ class current(QThread):
             time.sleep(1)
             print("BTC : %d\nLTC : %d"%(BTC, LTC))
 
+
 class MyWindow(QMainWindow):
     def __init__(self):
         super().__init__()
