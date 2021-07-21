@@ -18,7 +18,7 @@ binance = ccxt.binance(config = {
 
 symbol = "BTC/USDT"
 market = binance.market(symbol)
-leverage = 2
+leverage = 3
 
 resp = binance.fapiPrivate_post_leverage({
     'symbol' : market['id'],
