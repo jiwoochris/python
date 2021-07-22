@@ -5,7 +5,7 @@ import datetime
 import pandas as pd
 import mod
 
-with open("../api.txt") as f:
+with open("binance_key.txt") as f:
     lines = f.readlines()
     api_key = lines[0].strip()
     secret  = lines[1].strip()
@@ -20,14 +20,14 @@ binance = ccxt.binance(config={
 })
 
 symbol = "BTC/USDT"
-target = larry.cal_target(binance, symbol)
+target = mod.cal_target(binance, symbol)
 
 while True: 
     now = datetime.datetime.now()
 
     # udpate target price
     if now.hour == 9 and now.minute == 0 and (20 <= now.second < 30):
-        target = larry.cal_target(binance, symbol)
+        target = mod.cal_target(binance, symbol)
 
     btc = binance.fetch_ticker(symbol)
     print(now, btc['last'])
