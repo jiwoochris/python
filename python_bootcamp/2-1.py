@@ -29,6 +29,29 @@ print(return_df)
 
 corr_df = return_df.corr()
 
-corr_df = corr_df.style.background_gradient()
+corr_df.style.background_gradient()
 
-display(corr_df)
+print(return_df.max())
+print(return_df.min())
+
+plus = {}
+
+for i in return_df.columns:
+    cond = return_df[i] > 0
+    plus[i] = return_df[i][cond].shape[0]
+
+print(sorted(plus.items(), key=lambda x: x[1], reverse=True))
+
+print(stock_info)
+
+stock_5ma = stock_info.rolling(5).mean()
+print(stock_5ma)
+
+print( ((return_df.mean() - return_df) * (return_df.mean() - return_df)).sum() / len(return_df) )
+
+currency = pd.read_csv('C:\\Users\\정지우\\Downloads\\Materials\\currency.csv', encoding = 'cp949', low_memory=False, index_col = 0)
+
+for i in stock_info.columns:
+    stock_info[i] = stock_info[i] / currency['원/달러 환율']
+
+print(stock_info)
